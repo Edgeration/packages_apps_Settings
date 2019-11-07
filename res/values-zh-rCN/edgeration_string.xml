@@ -21,4 +21,8 @@
     <string name="battery_saver_refresh_rate_title">降低刷新率</string>
     <string name="battery_saver_refresh_rate_summary">当省电模式开启时，使用60Hz刷新率</string>
 
+    <!-- Swipe to screenshot -->
+    <string name="swipe_to_screenshot_title">滑动截屏</string>
+    <string name="swipe_to_screenshot_summary">三指同时下滑以截取屏幕</string>
+
 </resources>
