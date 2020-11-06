@@ -25,4 +25,8 @@
     <string name="swipe_to_screenshot_title">Swipe to screenshot</string>
     <string name="swipe_to_screenshot_summary">Swipe 3 fingers down the screen to take a screenshot</string>
 
+    <!-- Lock screen battery info indicator -->
+    <string name="lockscreen_battery_info_title">Lock screen charging info</string>
+    <string name="lockscreen_battery_info_summary">Show charging current, voltage, wattage and battery temperature on lock screen while charging</string>
+
 </resources>

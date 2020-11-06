@@ -25,4 +25,8 @@
     <string name="swipe_to_screenshot_title">滑动截屏</string>
     <string name="swipe_to_screenshot_summary">三指同时下滑以截取屏幕</string>
 
+    <!-- Lockscreen battery info indicator  -->
+    <string name="lockscreen_battery_info_title">锁屏充电信息</string>
+    <string name="lockscreen_battery_info_summary">充电时在锁屏上显示充电电流、电压、功率和电池温度</string>
+    
 </resources>
