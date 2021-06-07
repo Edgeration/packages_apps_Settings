@@ -20,23 +20,25 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="top_level_settings">
 
-    <Preference
-        android:key="top_level_network"
-        android:title="@string/network_dashboard_title"
-        android:summary="@string/summary_placeholder"
-        android:icon="@drawable/ic_homepage_network"
-        android:order="-120"
-        android:fragment="com.android.settings.network.NetworkDashboardFragment"
-        settings:controller="com.android.settings.network.TopLevelNetworkEntryPreferenceController"/>
+    <org.edgeration.sdk.preference.BaseCategory android:title="Connection">
+        <org.edgeration.sdk.preference.TopCornerPreference
+            android:key="top_level_network"
+            android:title="@string/network_dashboard_title"
+            android:summary="@string/summary_placeholder"
+            android:icon="@drawable/ic_homepage_network"
+            android:order="-120"
+            android:fragment="com.android.settings.network.NetworkDashboardFragment"
+            settings:controller="com.android.settings.network.TopLevelNetworkEntryPreferenceController"/>
 
-    <Preference
-        android:key="top_level_connected_devices"
-        android:title="@string/connected_devices_dashboard_title"
-        android:summary="@string/summary_placeholder"
-        android:icon="@drawable/ic_homepage_connected_device"
-        android:order="-110"
-        android:fragment="com.android.settings.connecteddevice.ConnectedDeviceDashboardFragment"
-        settings:controller="com.android.settings.connecteddevice.TopLevelConnectedDevicesPreferenceController"/>
+        <org.edgeration.sdk.preference.BottomCornerPreference
+            android:key="top_level_connected_devices"
+            android:title="@string/connected_devices_dashboard_title"
+            android:summary="@string/summary_placeholder"
+            android:icon="@drawable/ic_homepage_connected_device"
+            android:order="-110"
+            android:fragment="com.android.settings.connecteddevice.ConnectedDeviceDashboardFragment"
+            settings:controller="com.android.settings.connecteddevice.TopLevelConnectedDevicesPreferenceController"/>
+    </org.edgeration.sdk.preference.BaseCategory>
 
     <Preference
         android:key="top_level_apps_and_notifs"

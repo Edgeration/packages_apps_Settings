@@ -57,6 +57,21 @@
         android:layout_height="wrap_content"
         android:touchscreenBlocksFocus="false"
         android:keyboardNavigationCluster="false">
-        <include layout="@layout/search_bar"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/search_bar"/>
+            <org.edgeration.sdk.widget.SearchBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:id="@+id/edge_searchbox"
+                app:hint="Search tabs or settings"
+                app:useAsStaticEntrance="true" />
+        </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

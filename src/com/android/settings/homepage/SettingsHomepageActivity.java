@@ -37,6 +37,8 @@ import com.android.settings.core.HideNonSystemOverlayMixin;
 import com.android.settings.homepage.contextualcards.ContextualCardsFragment;
 import com.android.settings.overlay.FeatureFactory;
 
+import org.edgeration.sdk.widget.SearchBox;
+
 public class SettingsHomepageActivity extends FragmentActivity {
 
     @Override
@@ -50,7 +52,9 @@ public class SettingsHomepageActivity extends FragmentActivity {
 
         setHomepageContainerPaddingTop();
 
-        final Toolbar toolbar = findViewById(R.id.search_action_bar);
+        final SearchBox searchbox = findViewById(R.id.edge_searchbox);
+
+        final Toolbar toolbar = toolbar.getToolbar();
         FeatureFactory.getFactory(this).getSearchFeatureProvider()
                 .initSearchToolbar(this /* activity */, toolbar, SettingsEnums.SETTINGS_HOMEPAGE);
 
