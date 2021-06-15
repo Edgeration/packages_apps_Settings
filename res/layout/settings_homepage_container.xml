@@ -49,8 +49,8 @@
                 android:id="@+id/contextual_cards_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="13dp"
                 android:layout_marginEnd="@dimen/default_margin"/>
 
             <FrameLayout
@@ -71,19 +71,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-             android:minHeight="@dimen/default_appbar_height"
+            android:minHeight="@dimen/default_appbar_height"
             android:orientation="vertical"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <org.edgeration.sdk.widget.AccountBar
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content" 
+                app:enableBlur="true" />
 
             <org.edgeration.sdk.widget.AppBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:subtitle="@string/homepage_appbar_subtitle"
-                app:title="@string/homepage_appbar_title_all_fine" />
+                app:title="@string/homepage_appbar_title_all_fine"
+                app:enableBlur="true" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
