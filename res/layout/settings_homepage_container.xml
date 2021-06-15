@@ -42,7 +42,7 @@
                 android:layout_marginTop="104dp"
                 android:layout_marginEnd="@dimen/default_margin"
                 android:id="@+id/edge_searchbox"
-                app:hint="Search tabs or settings"
+                app:hint="@string/search_menu"
                 app:useAsStaticEntrance="true" />
 
             <FrameLayout
@@ -82,8 +82,8 @@
             <org.edgeration.sdk.widget.AppBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:subtitle="Settings"
-                app:title="All Fine!" />
+                app:subtitle="@string/homepage_appbar_subtitle"
+                app:title="@string/homepage_appbar_title_all_fine" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
