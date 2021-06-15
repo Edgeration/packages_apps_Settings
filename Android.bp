@@ -50,6 +50,7 @@ android_library {
         "settings-contextual-card-protos-lite",
         "settings-log-bridge-protos-lite",
         "contextualcards",
+        "EdgerationSDK",
         "settings-logtags",
         "statslog-settings",
         "zxing-core-1.7",
@@ -93,3 +94,4 @@ android_library_import {
     name: "contextualcards",
     aars: ["libs/contextualcards.aar"],
 }
+

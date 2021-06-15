@@ -82,10 +82,10 @@ public interface SearchFeatureProvider {
         //
         // Need to make the navigation icon non-clickable so that the entire card is clickable
         // and goes to the search UI. Also set the background to null so there's no ripple.
-        final View navView = toolbar.getNavigationView();
-        navView.setClickable(false);
-        navView.setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
-        navView.setBackground(null);
+        // final View navView = toolbar.getNavigationView();
+        // navView.setClickable(false);
+        // navView.setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
+        // navView.setBackground(null);
 
         toolbar.setOnClickListener(tb -> {
             final Context context = activity.getApplicationContext();
