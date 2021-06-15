@@ -35,12 +35,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <org.edgeration.sdk.widget.SearchBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="104dp"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:id="@+id/edge_searchbox"
+                app:hint="Search tabs or settings"
+                app:useAsStaticEntrance="true" />
+
             <FrameLayout
                 android:id="@+id/contextual_cards_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/contextual_card_side_margin"
-                android:layout_marginEnd="@dimen/contextual_card_side_margin"/>
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="@dimen/default_margin"/>
 
             <FrameLayout
                 android:id="@+id/main_content"
@@ -60,18 +71,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+             android:minHeight="@dimen/default_appbar_height"
+            android:orientation="vertical"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <include layout="@layout/search_bar"/>
-            <org.edgeration.sdk.widget.SearchBox
+            <org.edgeration.sdk.widget.AccountBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <org.edgeration.sdk.widget.AppBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginTop="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:id="@+id/edge_searchbox"
-                app:hint="Search tabs or settings"
-                app:useAsStaticEntrance="true" />
+                app:subtitle="Settings"
+                app:title="All Fine!" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

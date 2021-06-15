@@ -54,7 +54,7 @@ public class SettingsHomepageActivity extends FragmentActivity {
 
         final SearchBox searchbox = findViewById(R.id.edge_searchbox);
 
-        final Toolbar toolbar = toolbar.getToolbar();
+        final Toolbar toolbar = searchbox.getToolbar();
         FeatureFactory.getFactory(this).getSearchFeatureProvider()
                 .initSearchToolbar(this /* activity */, toolbar, SettingsEnums.SETTINGS_HOMEPAGE);
 
