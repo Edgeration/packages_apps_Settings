@@ -10,6 +10,7 @@ import org.edgeration.sdk.misc.Constants;
 import org.edgeration.sdk.widget.ViewOp;
 
 import androidx.preference.PreferenceViewHolder;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class EdgerationVETPreference extends ValidatedEditTextPreference{
     protected View mHolder;
