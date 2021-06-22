@@ -26,14 +26,18 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SwitchPreference;
 
 import com.android.settings.R;
 import com.android.settings.core.SubSettingLauncher;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.support.SupportPreferenceController;
+import com.android.settings.widget.MasterSwitchPreference;
 import com.android.settingslib.core.instrumentation.Instrumentable;
 import com.android.settingslib.search.SearchIndexable;
+import com.android.settingslib.drawer.ProviderTile;
+import com.android.settingslib.drawer.Tile;
 
 import org.edgeration.sdk.preference.SingleCornerPreference;
 
