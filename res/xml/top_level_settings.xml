@@ -47,9 +47,9 @@
             android:fragment="com.android.settings.connecteddevice.ConnectedDeviceDashboardFragment"
             settings:controller="com.android.settings.connecteddevice.TopLevelConnectedDevicesPreferenceController"/>
 
-    <org.edgeration.sdk.preference.PreferencePlaceHolder
-        android:key="preference_holder_1"
-        android:order="250" />
+        <org.edgeration.sdk.preference.PreferencePlaceHolder
+            android:key="preference_holder_1"
+            android:order="250" />
 
         <org.edgeration.sdk.preference.TopCornerPreference
             android:key="top_level_apps_and_notifs"
@@ -124,9 +124,9 @@
             android:fragment="com.android.settings.accounts.AccountDashboardFragment"
             settings:controller="com.android.settings.accounts.TopLevelAccountEntryPreferenceController"/>
 
-     <org.edgeration.sdk.preference.PreferencePlaceHolder
-        android:order="350"
-        android:key="preference_holder_3" />
+        <org.edgeration.sdk.preference.PreferencePlaceHolder
+            android:order="350"
+            android:key="preference_holder_3" />
 
         <org.edgeration.sdk.preference.TopCornerPreference
             android:key="top_level_storage"
