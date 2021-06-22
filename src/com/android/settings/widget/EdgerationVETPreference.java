@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import org.edgeration.sdk.R;
+import org.edgeration.sdk.misc.Constants;
+import org.edgeration.sdk.widget.ViewOp;
 
 import androidx.preference.PreferenceViewHolder;
 
@@ -32,6 +34,13 @@ public class EdgerationVETPreference extends ValidatedEditTextPreference{
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
         mHolder = holder.itemView;
+
+        RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) holderView.getLayoutParams();
+        float margin = ViewOp.Dp2Px(getContext(), Constants.CORNER_RADIUS_IN_DP);
+        params.setMarginStart((int) margin);
+        params.setMarginEnd((int) margin);
+        params.setMarginTop((int) margin / 2);
+        mHolder.setLayoutParams(params);
 
         Configuration mConfiguration = getContext().getResources().getConfiguration();
         switch (mConfiguration.uiMode & Configuration.UI_MODE_NIGHT_MASK) {
