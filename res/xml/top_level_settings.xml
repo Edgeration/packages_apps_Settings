@@ -20,6 +20,15 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="top_level_settings">
 
+        <org.edgeration.sdk.preference.SingleCornerPreference
+            android:key="top_level_about_device"
+            android:title="@string/about_settings"
+            android:summary="@string/summary_placeholder"
+            android:icon="@drawable/ic_homepage_about"
+            android:order="220"
+            android:fragment="com.android.settings.deviceinfo.aboutphone.MyDeviceInfoFragment"
+            settings:controller="com.android.settings.deviceinfo.aboutphone.TopLevelAboutDevicePreferenceController"/>
+
         <org.edgeration.sdk.preference.TopCornerPreference
             android:key="top_level_network"
             android:title="@string/network_dashboard_title"
@@ -38,9 +47,9 @@
             android:fragment="com.android.settings.connecteddevice.ConnectedDeviceDashboardFragment"
             settings:controller="com.android.settings.connecteddevice.TopLevelConnectedDevicesPreferenceController"/>
 
-    <org.edgeration.sdk.preference.PreferencePlaceHolder
-        android:key="preference_holder_1"
-        android:order="250" />
+        <org.edgeration.sdk.preference.PreferencePlaceHolder
+            android:key="preference_holder_1"
+            android:order="250" />
 
         <org.edgeration.sdk.preference.TopCornerPreference
             android:key="top_level_apps_and_notifs"
@@ -115,9 +124,9 @@
             android:fragment="com.android.settings.accounts.AccountDashboardFragment"
             settings:controller="com.android.settings.accounts.TopLevelAccountEntryPreferenceController"/>
 
-     <org.edgeration.sdk.preference.PreferencePlaceHolder
-        android:order="350"
-        android:key="preference_holder_3" />
+        <org.edgeration.sdk.preference.PreferencePlaceHolder
+            android:order="350"
+            android:key="preference_holder_3" />
 
         <org.edgeration.sdk.preference.TopCornerPreference
             android:key="top_level_storage"
@@ -137,22 +146,13 @@
             android:fragment="com.android.settings.accessibility.AccessibilitySettings"
             settings:controller="com.android.settings.accessibility.TopLevelAccessibilityPreferenceController"/>
 
-        <org.edgeration.sdk.preference.CenterItemPreference
+        <org.edgeration.sdk.preference.BottomCornerPreference
             android:key="top_level_system"
             android:title="@string/header_category_system"
             android:summary="@string/system_dashboard_summary"
             android:icon="@drawable/ic_homepage_system_dashboard"
             android:order="380"
             android:fragment="com.android.settings.system.SystemDashboardFragment"/>
-
-        <org.edgeration.sdk.preference.BottomCornerPreference
-            android:key="top_level_about_device"
-            android:title="@string/about_settings"
-            android:summary="@string/summary_placeholder"
-            android:icon="@drawable/ic_homepage_about"
-            android:order="390"
-            android:fragment="com.android.settings.deviceinfo.aboutphone.MyDeviceInfoFragment"
-            settings:controller="com.android.settings.deviceinfo.aboutphone.TopLevelAboutDevicePreferenceController"/>
 
         <org.edgeration.sdk.preference.BottomCornerPreference
             android:key="top_level_support"
