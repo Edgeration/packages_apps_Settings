@@ -35,6 +35,8 @@ import com.android.settings.support.SupportPreferenceController;
 import com.android.settingslib.core.instrumentation.Instrumentable;
 import com.android.settingslib.search.SearchIndexable;
 
+import org.edgeration.sdk.preference.SingleCornerPreference;
+
 @SearchIndexable(forTarget = MOBILE)
 public class TopLevelSettings extends DashboardFragment implements
         PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
@@ -97,6 +99,15 @@ public class TopLevelSettings extends DashboardFragment implements
     protected boolean shouldForceRoundedIcon() {
         return getContext().getResources()
                 .getBoolean(R.bool.config_force_rounded_icon_TopLevelSettings);
+    }
+
+    @Override
+    public Preference createPreference(Tile tile) {
+        return tile instanceof ProviderTile
+                ? new SwitchPreference(getPrefContext())
+                : tile.hasSwitch()
+                        ? new MasterSwitchPreference(getPrefContext())
+                        : new SingleCornerPreference(getPrefContext());
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
