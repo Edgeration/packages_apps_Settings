@@ -21,21 +21,23 @@
     android:key="my_device_info_pref_screen"
     android:title="@string/about_settings">
 
-    <com.android.settingslib.widget.LayoutPreference
-        android:key="my_device_info_header"
-        android:order="0"
-        android:layout="@layout/settings_entity_header"
-        android:selectable="false"
-        settings:isPreferenceVisible="false"/>
+    <org.edgeration.sdk.preference.PreferencePlaceHolder />
 
     <!-- Device name -->
-    <com.android.settings.widget.ValidatedEditTextPreference
+    <com.android.settings.widget.EdgerationVETPreference
         android:key="device_name"
-        android:order="1"
+        android:order="0"
         android:title="@string/my_device_info_device_name_preference_title"
         android:summary="@string/summary_placeholder"
         settings:controller="com.android.settings.deviceinfo.DeviceNamePreferenceController"
         settings:enableCopying="true"/>
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="my_device_info_header"
+        android:order="1"
+        android:layout="@layout/layout_device_info_header"
+        android:selectable="false"
+        settings:isPreferenceVisible="false"/>
 
     <!-- Account name -->
     <Preference
