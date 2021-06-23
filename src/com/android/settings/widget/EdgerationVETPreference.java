@@ -36,7 +36,7 @@ public class EdgerationVETPreference extends ValidatedEditTextPreference{
         super.onBindViewHolder(holder);
         mHolder = holder.itemView;
 
-        RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) holderView.getLayoutParams();
+        RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) mHolder.getLayoutParams();
         float margin = ViewOp.Dp2Px(getContext(), Constants.CORNER_RADIUS_IN_DP);
         params.setMarginStart((int) margin);
         params.setMarginEnd((int) margin);
