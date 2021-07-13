@@ -430,4 +430,7 @@
 
     <!-- Text padding for EmptyTextSettings -->
     <dimen name="empty_text_padding">24dp</dimen>
+
+     <!-- Fake StatusBarView -->
+    <dimen name="statusbar_view_height">25dp</dimen>
 </resources>
