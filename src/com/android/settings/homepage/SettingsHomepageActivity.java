@@ -38,6 +38,7 @@ import com.android.settings.homepage.contextualcards.ContextualCardsFragment;
 import com.android.settings.overlay.FeatureFactory;
 
 import org.edgeration.sdk.widget.SearchBox;
+import org.edgeration.sdk.utils.StatusBarUtil;
 
 public class SettingsHomepageActivity extends FragmentActivity {
 
@@ -57,6 +58,8 @@ public class SettingsHomepageActivity extends FragmentActivity {
         final Toolbar toolbar = searchbox.getToolbar();
         FeatureFactory.getFactory(this).getSearchFeatureProvider()
                 .initSearchToolbar(this /* activity */, toolbar, SettingsEnums.SETTINGS_HOMEPAGE);
+
+        StatusBarUtil.setTranslucent(this, 0);
 
         final ImageView avatarView = findViewById(R.id.account_avatar);
         getLifecycle().addObserver(new AvatarViewMixin(this, avatarView));
