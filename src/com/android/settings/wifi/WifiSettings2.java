@@ -922,7 +922,7 @@ public class WifiSettings2 extends RestrictedSettingsFragment
 
     protected void setProgressBarVisible(boolean visible) {
         if (mProgressHeader != null) {
-            mProgressHeader.setVisibility(visible ? View.VISIBLE : View.GONE);
+            mProgressHeader.setVisibility(View.GONE);
         }
     }
 
