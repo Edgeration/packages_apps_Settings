@@ -49,6 +49,8 @@ import com.android.settingslib.core.instrumentation.MetricsFeatureProvider;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.edgeration.sdk.widget.SwitchBar;
+
 public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedChangeListener {
 
     public interface OnSwitchChangeListener {
@@ -89,6 +91,8 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
     private EnforcedAdmin mEnforcedAdmin = null;
     private String mMetricsTag;
 
+    private org.edgeration.sdk.internal.widget.SwitchBarInternal mEdgeSwitchBar;
+
 
     public SwitchBar(Context context) {
         this(context, null);
@@ -110,6 +114,8 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
         setFocusable(true);
         setClickable(true);
 
+        mEdgeSwitchBar = findViewById(R.id.edger_switch_bar);
+
         final TypedArray a = context.obtainStyledAttributes(attrs, XML_ATTRIBUTES);
         final int switchBarMarginStart = (int) a.getDimension(0, 0);
         final int switchBarMarginEnd = (int) a.getDimension(1, 0);
@@ -118,12 +124,12 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
         final Drawable restrictedIconDrawable = a.getDrawable(4);
         a.recycle();
 
-        mTextView = findViewById(R.id.switch_text);
+        mTextView = mEdgeSwitchBar.getSwitchBarTextView();
         mSummarySpan = new TextAppearanceSpan(mContext, R.style.TextAppearance_Small_SwitchBar);
         ViewGroup.MarginLayoutParams lp = (MarginLayoutParams) mTextView.getLayoutParams();
         lp.setMarginStart(switchBarMarginStart);
 
-        mSwitch = findViewById(R.id.switch_widget);
+        mSwitch = mEdgeSwitchBar.getSwitch();
         // Prevent onSaveInstanceState() to be called as we are managing the state of the Switch
         // on our own
         mSwitch.setSaveEnabled(false);
@@ -140,7 +146,7 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
         addOnSwitchChangeListener(
                 (switchView, isChecked) -> setTextViewLabelAndBackground(isChecked));
 
-        mRestrictedIcon = findViewById(R.id.restricted_icon);
+        mRestrictedIcon = mEdgeSwitchBar.getRestrictedIcon();
         mRestrictedIcon.setImageDrawable(restrictedIconDrawable);
         mRestrictedIcon.setOnClickListener(new View.OnClickListener() {
             @Override
