@@ -21,14 +21,18 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
-    <Toolbar
-        android:id="@+id/action_bar"
-        style="?android:attr/actionBarStyle"
+
+    <org.edgeration.sdk.widget.AppBar
+        android:id="@+id/edger_app_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="?android:attr/actionBarTheme" />
+        android:layout_height="@dimen/default_appbar_height"
+        app:allowFold="true"
+        app:showBackButton="true"
+        app:enableBlur="true" />
+
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+        
 </LinearLayout>
