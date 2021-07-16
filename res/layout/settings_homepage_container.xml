@@ -81,12 +81,15 @@
                 android:layout_height="wrap_content" 
                 app:enableBlur="true" />
 
-            <org.edgeration.sdk.widget.AppBar
+        </LinearLayout>
+
+        <org.edgeration.sdk.widget.AppBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:subtitle="@string/homepage_appbar_subtitle"
                 app:title="@string/homepage_appbar_title_all_fine"
-                app:enableBlur="true" />
-        </LinearLayout>
+                app:enableBlur="true"
+                app:allowFold="true"
+                app:useSubtitleAsFoldedTitle="true"  />
     </com.google.android.material.appbar.AppBarLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
