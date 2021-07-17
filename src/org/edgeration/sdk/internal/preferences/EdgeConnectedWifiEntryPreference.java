@@ -7,6 +7,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.android.settings.wifi.ConnectedWifiEntryPreference;
 import com.android.wifitrackerlib.WifiEntry;
@@ -42,14 +43,18 @@ public class EdgeConnectedWifiEntryPreference extends ConnectedWifiEntryPreferen
         if (info != null)
             titleView.append("Gen" + info.getWifiStandard());
 
-        holderView.findViewById(com.android.settingslib.R.id.two_target_divider).setVisibility(View.GONE);
-
+        preferenceViewHolder.setDividerAllowedBelow(false);
         holderView.setBackground(getContext().getDrawable(R.drawable.themed_single_item_corner));
 
         ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) holderView.getLayoutParams();
         int eightDp = ViewOp.Dp2Px(getContext(), 8);
-        layoutParams.setMargins(eightDp, eightDp, eightDp, eightDp);
+        layoutParams.setMargins(eightDp, eightDp * 2, eightDp, eightDp * 2);
         holderView.setLayoutParams(layoutParams);
+
+        ImageView gear = holderView.findViewById(R.id.settings_button_no_background);
+        ImageView gear_overdraw = holderView.findViewById(R.id.settings_button_overdraw);
+        ViewOp.reTintImage(gear, Color.WHITE);
+        ViewOp.reTintImage(gear_overdraw, Color.WHITE);
     }
 
     private WifiInfo getWifiInfo(WifiEntry entry) {
