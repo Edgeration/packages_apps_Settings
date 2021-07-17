@@ -31,6 +31,8 @@ import com.android.settings.R;
 import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 import com.android.settingslib.RestrictedPreference;
 
+import org.edgeration.sdk.internal.widget.EdgeSwitchWithTransponder;
+
 /**
  * A custom preference that provides inline switch toggle. It has a mandatory field for title, and
  * optional fields for icon and sub-text. And it can be restricted by admin state.
@@ -41,6 +43,8 @@ public class MasterSwitchPreference extends RestrictedPreference {
     private boolean mChecked;
     private boolean mCheckedSet;
     private boolean mEnableSwitch = true;
+
+    private EdgeSwitchWithTransponder mEdgeSwitch;
 
     public MasterSwitchPreference(Context context, AttributeSet attrs,
             int defStyleAttr, int defStyleRes) {
@@ -91,7 +95,9 @@ public class MasterSwitchPreference extends RestrictedPreference {
             });
         }
 
-        mSwitch = (Switch) holder.findViewById(R.id.switchWidget);
+        mEdgeSwitch = (EdgeSwitchWithTransponder) holder.findViewById(R.id.switchWidget);
+
+        mSwitch = mEdgeSwitch.getSwitch();
         if (mSwitch != null) {
             mSwitch.setContentDescription(getTitle());
             mSwitch.setChecked(mChecked);
