@@ -31,7 +31,12 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.preference.PreferenceViewHolder;
 
+import com.android.settings.R;
+import com.android.settings.notification.VolumeSeekBarPreference;
+
 import com.android.settingslib.RestrictedPreference;
+
+import org.edgeration.sdk.internal.widget.EdgeSeekBarWithTransponder;
 
 /**
  * Based on android.preference.SeekBarPreference, but uses support preference as base.
@@ -48,6 +53,7 @@ public class SeekBarPreference extends RestrictedPreference
     private int mDefaultProgress = -1;
 
     private SeekBar mSeekBar;
+    protected EdgeSeekBarWithTransponder mEdgeSeekBar;
     private boolean mShouldBlink;
     private int mAccessibilityRangeInfoType = AccessibilityNodeInfo.RangeInfo.RANGE_TYPE_INT;
     private CharSequence mSeekBarContentDescription;
@@ -112,8 +118,14 @@ public class SeekBarPreference extends RestrictedPreference
     public void onBindViewHolder(PreferenceViewHolder view) {
         super.onBindViewHolder(view);
         view.itemView.setOnKeyListener(this);
-        mSeekBar = (SeekBar) view.findViewById(
+        if(this instanceof VolumeSeekBarPreference) {
+            mEdgeSeekBar = (EdgeSeekBarWithTransponder) view.findViewById(R.id.edger_seek_bar);
+            mSeekBar = mEdgeSeekBar.getSeekBar();
+        } else {
+            mSeekBar = (SeekBar) view.findViewById(
                 com.android.internal.R.id.seekbar);
+        }
+
         mSeekBar.setOnSeekBarChangeListener(this);
         mSeekBar.setMax(mMax);
         mSeekBar.setMin(mMin);
