@@ -36,10 +36,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.util.Log;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
+import androidx.cardview.widget.CardView;
 
 import com.android.settings.R;
 import com.android.settings.overlay.FeatureFactory;
@@ -49,7 +51,8 @@ import com.android.settingslib.core.instrumentation.MetricsFeatureProvider;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.edgeration.sdk.widget.SwitchBar;
+import org.edgeration.sdk.internal.widget.SwitchBarInternal;
+import org.edgeration.sdk.widget.EdgeSwitch;
 
 public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedChangeListener {
 
@@ -92,7 +95,7 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
     private String mMetricsTag;
 
     private org.edgeration.sdk.internal.widget.SwitchBarInternal mEdgeSwitchBar;
-
+    private EdgeSwitch mEdgeSwitch;
 
     public SwitchBar(Context context) {
         this(context, null);
@@ -115,6 +118,7 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
         setClickable(true);
 
         mEdgeSwitchBar = findViewById(R.id.edger_switch_bar);
+        mEdgeSwitch = mEdgeSwitchBar.getEdgeSwitch();
 
         final TypedArray a = context.obtainStyledAttributes(attrs, XML_ATTRIBUTES);
         final int switchBarMarginStart = (int) a.getDimension(0, 0);
@@ -134,12 +138,19 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
         // on our own
         mSwitch.setSaveEnabled(false);
         // Set the ToggleSwitch non-focusable and non-clickable to avoid multiple focus.
-        mSwitch.setFocusable(false);
-        mSwitch.setClickable(false);
+        mEdgeSwitch.setFocusable(false);
+        mEdgeSwitch.setClickable(false);
 
-        lp = (MarginLayoutParams) mSwitch.getLayoutParams();
+        mEdgeSwitchBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performClick();
+            }
+        });
+
+        lp = (MarginLayoutParams) mEdgeSwitch.getLayoutParams();
         lp.setMarginEnd(switchBarMarginEnd);
-        setBackgroundColor(mBackgroundColor);
+        // setBackgroundColor(mBackgroundColor);
 
         setSwitchBarText(R.string.switch_on_text, R.string.switch_off_text);
 
@@ -183,7 +194,7 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
 
     public void setTextViewLabelAndBackground(boolean isChecked) {
         mLabel = isChecked ? mOnText : mOffText;
-        setBackgroundColor(isChecked ? mBackgroundActivatedColor : mBackgroundColor);
+        //setBackgroundColor(isChecked ? mBackgroundActivatedColor : mBackgroundColor);
         updateText();
     }
 
@@ -206,14 +217,18 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
 
     private void updateText() {
         if (TextUtils.isEmpty(mSummary)) {
-            mTextView.setText(mLabel);
+            mEdgeSwitchBar.getSwitchBarTextView().setText(mLabel);
+            Log.e("Alc","titleonly_set:"+mLabel);
+            Log.e("Alc","titleonly_get:"+mEdgeSwitchBar.getSwitchBarTextView().getText());
             return;
         }
         final SpannableStringBuilder ssb = new SpannableStringBuilder(mLabel).append('\n');
         final int start = ssb.length();
         ssb.append(mSummary);
         ssb.setSpan(mSummarySpan, start, ssb.length(), 0);
-        mTextView.setText(ssb);
+        mEdgeSwitchBar.getSwitchBarTextView().setText(ssb);
+        Log.e("Alc","withsummary_set:"+ssb.toString());
+        Log.e("Alc","withsummary_get:"+mEdgeSwitchBar.getSwitchBarTextView().getText());
     }
 
     public void setChecked(boolean checked) {

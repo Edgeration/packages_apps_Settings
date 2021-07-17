@@ -22,7 +22,7 @@
     <org.edgeration.sdk.internal.widget.SwitchBarInternal
                 android:id="@+id/edger_switch_bar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"/>
+                android:layout_height="match_parent"/>
 
 </merge>
 

@@ -5,8 +5,10 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
+
 import com.android.settings.widget.ToggleSwitch;
-import  com.android.settings.R;
+import com.android.settings.R;
 
 import org.edgeration.sdk.view.EdgerationViewBase;
 
@@ -15,6 +17,7 @@ import androidx.annotation.Nullable;
 public class SwitchBarInternal extends EdgerationViewBase {
     TextView mTextView;
     ImageView mRestrictedIcon;
+    CardView mCard;
     EdgeSwitchWithTransponder mEdgeSwitch;
 
     public SwitchBarInternal(Context context) {
@@ -46,6 +49,7 @@ public class SwitchBarInternal extends EdgerationViewBase {
         mTextView = findViewById(R.id.switch_text);
         mRestrictedIcon = findViewById(R.id.restricted_icon);
         mEdgeSwitch = findViewById(R.id.switch_widget);
+        mCard = findViewById(R.id.root);
     }
 
     public TextView getSwitchBarTextView() {
@@ -62,5 +66,9 @@ public class SwitchBarInternal extends EdgerationViewBase {
 
     public ToggleSwitch getSwitch() {
         return mEdgeSwitch.getSwitch();
+    }
+
+    public CardView getCard() {
+        return mCard;
     }
 }
