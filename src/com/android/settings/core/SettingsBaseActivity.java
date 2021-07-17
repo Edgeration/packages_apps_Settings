@@ -45,7 +45,7 @@ import com.android.settingslib.drawer.Tile;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
-import org.edgeration.sdk.widget.AppBar;
+import org.edgeration.sdk.internal.widget.AppBarWithTransponder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,7 +86,8 @@ public class SettingsBaseActivity extends FragmentActivity {
         }
         super.setContentView(R.layout.settings_base_layout);
 
-        final AppBar appBar = findViewById(R.id.edger_app_bar);
+        final AppBarWithTransponder appBar = findViewById(R.id.edger_app_bar);
+        appBar.setActivity(this);
 
         final Toolbar toolbar = appBar.getToolbar();
         if (theme.getBoolean(android.R.styleable.Theme_windowNoTitle, false)) {

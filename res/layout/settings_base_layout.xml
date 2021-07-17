@@ -23,13 +23,21 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <org.edgeration.sdk.widget.AppBar
-        android:id="@+id/edger_app_bar"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/default_appbar_height"
-        app:allowFold="true"
-        app:showBackButton="true"
-        app:enableBlur="true" />
+        android:layout_height="wrap_content"
+        android:touchscreenBlocksFocus="false"
+        android:keyboardNavigationCluster="false">
+
+        <org.edgeration.sdk.internal.widget.AppBarWithTransponder
+            android:id="@+id/edger_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            app:allowFold="true"
+            app:enableBlur="true"
+            app:subtitle="@string/homepage_appbar_subtitle"
+            app:showBackButton="true"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
         android:id="@+id/content_frame"
