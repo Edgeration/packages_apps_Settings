@@ -56,6 +56,7 @@
 
             <FrameLayout
                 android:id="@+id/main_content"
+                android:paddingBottom="@dimen/default_margin_half"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:animateLayoutChanges="true"
@@ -72,24 +73,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="@dimen/default_appbar_height"
             android:orientation="vertical"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <org.edgeration.sdk.widget.AccountBar
+                android:id="@+id/edger_account_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" 
+                app:topStatusBarExtend="true"
                 app:enableBlur="true" />
 
         </LinearLayout>
 
         <org.edgeration.sdk.widget.AppBar
+                android:id="@+id/edger_app_bar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/default_appbar_height"
                 app:subtitle="@string/homepage_appbar_subtitle"
                 app:title="@string/homepage_appbar_title_all_fine"
                 app:enableBlur="true"
                 app:allowFold="true"
                 app:useSubtitleAsFoldedTitle="true"  />
     </com.google.android.material.appbar.AppBarLayout>
+    
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

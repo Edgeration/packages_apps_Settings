@@ -30,6 +30,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.core.widget.NestedScrollView;
 
 import com.android.settings.R;
 import com.android.settings.accounts.AvatarViewMixin;
@@ -38,6 +39,8 @@ import com.android.settings.homepage.contextualcards.ContextualCardsFragment;
 import com.android.settings.overlay.FeatureFactory;
 
 import org.edgeration.sdk.widget.SearchBox;
+import org.edgeration.sdk.widget.AppBar;
+import org.edgeration.sdk.widget.AccountBar;
 import org.edgeration.sdk.utils.StatusBarUtil;
 
 public class SettingsHomepageActivity extends FragmentActivity {
@@ -54,6 +57,10 @@ public class SettingsHomepageActivity extends FragmentActivity {
         setHomepageContainerPaddingTop();
 
         final SearchBox searchbox = findViewById(R.id.edge_searchbox);
+        final NestedScrollView scroller = findViewById(R.id.main_content_scrollable_container);
+        final AppBar appbar = findViewById(R.id.edger_app_bar);
+
+        appbar.bindScrollParent(scroller);
 
         final Toolbar toolbar = searchbox.getToolbar();
         FeatureFactory.getFactory(this).getSearchFeatureProvider()
@@ -61,7 +68,9 @@ public class SettingsHomepageActivity extends FragmentActivity {
 
         StatusBarUtil.setTranslucent(this, 0);
 
-        final ImageView avatarView = findViewById(R.id.account_avatar);
+        final AccountBar accountBar = findViewById(R.id.edger_account_bar);
+
+        final ImageView avatarView = accountBar.getAvatarView();
         getLifecycle().addObserver(new AvatarViewMixin(this, avatarView));
         getLifecycle().addObserver(new HideNonSystemOverlayMixin(this));
 
