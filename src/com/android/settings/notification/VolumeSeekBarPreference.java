@@ -36,11 +36,14 @@ import com.android.settings.widget.SeekBarPreference;
 
 import java.util.Objects;
 
+import org.edgeration.sdk.internal.widget.EdgeSeekBarWithTransponder;
+
 /** A slider preference that directly controls an audio stream volume (no dialog) **/
 public class VolumeSeekBarPreference extends SeekBarPreference {
     private static final String TAG = "VolumeSeekBarPreference";
-
     protected SeekBar mSeekBar;
+    protected EdgeSeekBarWithTransponder mEdgeSeekBar;
+    
     private int mStream;
     private SeekBarVolumizer mVolumizer;
     private Callback mCallback;
@@ -110,10 +113,12 @@ public class VolumeSeekBarPreference extends SeekBarPreference {
     @Override
     public void onBindViewHolder(PreferenceViewHolder view) {
         super.onBindViewHolder(view);
-        mSeekBar = (SeekBar) view.findViewById(com.android.internal.R.id.seekbar);
+        mEdgeSeekBar = (EdgeSeekBarWithTransponder) view.findViewById(R.id.edger_seek_bar);
+        mSeekBar = mEdgeSeekBar.getSeekBar();
         mIconView = (ImageView) view.findViewById(com.android.internal.R.id.icon);
         mSuppressionTextView = (TextView) view.findViewById(R.id.suppression_text);
         init();
+        mEdgeSeekBar.requestTransponderSync();
     }
 
     protected void init() {

@@ -77,12 +77,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <SeekBar
-                android:id="@*android:id/seekbar"
+            <org.edgeration.sdk.internal.widget.EdgeSeekBarWithTransponder
+                android:id="@+id/edger_seek_bar"
                 android:layout_gravity="center_vertical"
                 android:paddingStart="12dp"
+                android:layout_marginTop="@dimen/default_margin_half"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"/>
+                android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/suppression_text"

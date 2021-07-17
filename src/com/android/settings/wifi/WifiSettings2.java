@@ -86,6 +86,9 @@ import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Optional;
 
+import org.edgeration.sdk.internal.preferences.EdgeConnectedWifiEntryPreference;
+import org.edgeration.sdk.internal.preferences.EdgeLongPressWifiEntryPreference;
+
 /**
  * UI for Wi-Fi settings screen
  */
@@ -727,8 +730,8 @@ public class WifiSettings2 extends RestrictedSettingsFragment
                     mConnectedWifiEntryPreferenceCategory.findPreference(connectedEntry.getKey());
             if (connectedPref == null || connectedPref.getWifiEntry() != connectedEntry) {
                 mConnectedWifiEntryPreferenceCategory.removeAll();
-                final ConnectedWifiEntryPreference pref =
-                        new ConnectedWifiEntryPreference(getPrefContext(), connectedEntry, this);
+                final EdgeConnectedWifiEntryPreference pref =
+                        new EdgeConnectedWifiEntryPreference(getPrefContext(), connectedEntry, this);
                 pref.setKey(connectedEntry.getKey());
                 pref.refresh();
                 mConnectedWifiEntryPreferenceCategory.addPreference(pref);
@@ -760,8 +763,8 @@ public class WifiSettings2 extends RestrictedSettingsFragment
             hasAvailableWifiEntries = true;
 
             String key = wifiEntry.getKey();
-            LongPressWifiEntryPreference pref =
-                    (LongPressWifiEntryPreference) getCachedPreference(key);
+            EdgeLongPressWifiEntryPreference pref =
+                    (EdgeLongPressWifiEntryPreference) getCachedPreference(key);
             if (pref != null) {
                 if (pref.getWifiEntry() == wifiEntry) {
                     pref.setOrder(index++);
@@ -824,8 +827,8 @@ public class WifiSettings2 extends RestrictedSettingsFragment
     }
 
     @VisibleForTesting
-    LongPressWifiEntryPreference createLongPressWifiEntryPreference(WifiEntry wifiEntry) {
-        return new LongPressWifiEntryPreference(getPrefContext(), wifiEntry, this);
+    EdgeLongPressWifiEntryPreference createLongPressWifiEntryPreference(WifiEntry wifiEntry) {
+        return new EdgeLongPressWifiEntryPreference(getPrefContext(), wifiEntry, this);
     }
 
     private void launchAddNetworkFragment() {
@@ -922,7 +925,7 @@ public class WifiSettings2 extends RestrictedSettingsFragment
 
     protected void setProgressBarVisible(boolean visible) {
         if (mProgressHeader != null) {
-            mProgressHeader.setVisibility(visible ? View.VISIBLE : View.GONE);
+            mProgressHeader.setVisibility(View.GONE);
         }
     }
 

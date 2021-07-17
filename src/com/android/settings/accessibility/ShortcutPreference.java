@@ -29,6 +29,8 @@ import androidx.preference.PreferenceViewHolder;
 
 import com.android.settings.R;
 
+import org.edgeration.sdk.internal.widget.EdgeSwitchWithTransponder;
+
 /**
  * Preference that can enable accessibility shortcut and let users choose which shortcut type they
  * prefer to use.
@@ -59,6 +61,8 @@ public class ShortcutPreference extends Preference {
     private boolean mChecked = false;
     private boolean mSettingsEditable = true;
 
+    private EdgeSwitchWithTransponder mEdgeSwitch;
+
     ShortcutPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setLayoutResource(R.layout.accessibility_shortcut_secondary_action);
@@ -83,7 +87,9 @@ public class ShortcutPreference extends Preference {
                     mSettingsEditable ? outValue.resourceId : /* Remove background */ 0);
         }
 
-        Switch switchWidget = holder.itemView.findViewById(R.id.switchWidget);
+        mEdgeSwitch = (EdgeSwitchWithTransponder) holder.itemView.findViewById(R.id.switchWidget);
+
+        Switch switchWidget = mEdgeSwitch.getSwitch();
         if (switchWidget != null) {
             // Consumes move events to ignore drag actions.
             switchWidget.setOnTouchListener((v, event) -> {

@@ -19,34 +19,10 @@
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/switch_text"
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="center_vertical"
-        android:maxLines="2"
-        android:ellipsize="end"
-        android:textAppearance="@style/TextAppearance.Switch"
-        android:textColor="?android:attr/textColorPrimaryInverse"
-        android:textAlignment="viewStart"/>
-
-    <ImageView
-        android:id="@+id/restricted_icon"
-        android:layout_width="@dimen/restricted_icon_size"
-        android:layout_height="@dimen/restricted_icon_size"
-        android:tint="?android:attr/colorAccent"
-        android:theme="@android:style/Theme.Material"
-        android:layout_gravity="center_vertical"
-        android:layout_marginEnd="@dimen/restricted_icon_margin_end"
-        android:visibility="gone" />
-
-    <com.android.settings.widget.ToggleSwitch
-        android:id="@+id/switch_widget"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:theme="@style/Widget.SwitchBar.Switch"/>
+    <org.edgeration.sdk.internal.widget.SwitchBarInternal
+                android:id="@+id/edger_switch_bar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
 </merge>
 
